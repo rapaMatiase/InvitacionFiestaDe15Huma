@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- https://animate.style/ -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Merriweather:wght@400&display=swap');
+
+        .background-image{
+            background-image: url("img/fondo.webp");    
+            background-repeat: no-repeat;
+            background-size: 80vw 100vh ;
+        }
+        .pink-squard{
+            background: rgb(0,0,0);
+            background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(247,228,221,1) 25%, rgba(247,228,221,1) 100%);position: absolute;
+            right: 0px;
+            top : 0px;
+            height: 100vh;
+            width: 50vw;
+            z-index: -1;
+            position: absolute;
+        }
+
+        .font-1{
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .font-2{
+            font-family: 'Merriweather', serif;
+            color: rgb(47,46,46);
+        }
+
+            .style-15::-webkit-scrollbar-track
+            {
+                -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+                background-color: #F5F5F5;
+                border-radius: 10px;
+            }
+
+            .style-15::-webkit-scrollbar
+            {
+                width: 10px;
+                background-color: #F5F5F5;
+            }
+
+            .style-15::-webkit-scrollbar-thumb
+            {
+                border-radius: 10px;
+                background-color: #d7b5b5;
+                background-image: -webkit-gradient(linear,
+                                                40% 0%,
+                                                75% 84%,
+                                                from(rgb(255, 224, 211)),
+                                                to(rgb(255, 224, 211)),
+                                                color-stop(.6, rgb(246, 203, 193)))
+            }
+
+    </style>
+</head>
+
+<body class="background-image font-2 ">
+    <div class="pink-squard"></div>
+    <main class="container-sm overflow-y-scroll text-center vh-100 vw-100 p-10 style-15 ">
+        
+        <article class="row mb-5 mt-5 justify-content-center align-items-center">
+            <section class="col-md-4 col-sm-6 ">
+                <img src="img/letra_h.png" style="height: 150px;" alt="">
+            </section>
+            <section class="col-md-3 col-sm-6">
+                <h1 class="display-2 font-1" style="text-align: center;">Huma</h1>
+            </section>
+            <section class="col-md-2 col-sm-12 align-items-end ">
+                <button id="botonMusica" class="btn btn-primary font-1 fs-4 border-0 align-middle" style="background-color: #F4CCCC;color: rgb(47,46,46); box-shadow: 0.00px 1.00px 4px 0px rgba(0,0,0,0.6);"> 
+                    <img src="img/boton-de-play.png" style="height: 30px;" alt="">
+                    ¡Dale play! 
+                </button>
+            </section>
+        </article>
+
+        <article class="row">
+            <section class="col">
+                <h1 class="display-6 font-2 mb-5"> 12-12-2023</h1>
+            </section>
+        </article>
+        <article class="row mb-5 justify-content-center ">
+            <section class="col-md-8">
+                <p class="fs-5 font-2">15 años, mezcla rara, dulce y hermosa... Edad de en sueños, emociones y nuevas
+                    experiencias. Porque son parte de mi vida, y porque simplemente los quiero, los invito a compartir…
+                    ¡La noche de mis sueños!</p>
+            </section>
+        </article>
+
+        <article class="row justify-content-center mb-5 d-none d-sm-flex">
+            <section class="col-8">
+                <div class="card container p-4 ">
+                    <div class="row justify-content-center">
+                        <div class="col-8 ">
+                            <p class="font-1 fs-1  text-center">¿Cuanto falta?</p>
+                        </div>
+                    </div>
+                    
+                    <div class="row m-2">
+                        <div class="col-md-2" id="diasGrande"></div>
+                        <div class="col-md-1">:</div>
+                        <div class="col-md-2" id="horasGrande"></div>
+                        <div class="col-md-1">:</div>
+                        <div class="col-md-2" id="minutosGrande"></div>
+                        <div class="col-md-1">:</div>
+                        <div class="col-md-2" id="segundosGrande"></div>
+                    </div>
+                    <div class="row m-2">
+                        <div class="col-md-2">Dias</div>
+                        <div class="col-md-1"></div>
+                        <div class="col-md-2 ">Horas</div>
+                        <div class="col-md-1 "></div>
+                        <div class="col-md-2">Minutos</div>
+                        <div class="col-md-1"></div>
+                        <div class="col-md-2">Segundos</div>
+                    </div>
+                </div>
+            </section>
+        </article>
+
+        <article class="row justify-content-center mb-5 d-md-none d-md-flex">
+            <section class="col-10">
+                <div class="card container p-4 ">
+                    <div class="row justify-content-center">
+                        <div class="col-10 ">
+                            <p class="font-1 fs-1  text-center">¿Cuanto falta? </p>
+                        </div>
+                    </div>
+                    
+                    <div class="row justify-content-center">
+                        <div class="col-5" id="diasChico"> 44 </div>
+                        <div class="col-7"> Días </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-5" id="horasChico"> 44 </div>
+                        <div class="col-7"> Horas </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-5" id="minutosChico"> 44 </div>
+                        <div class="col-7"> Minutos </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-5" id="segundosChico"> 44 </div>
+                        <div class="col-7"> Segundos </div>
+                    </div>
+                </div>
+            </section>
+        </article>
+
+        <article class="row  mb-5 justify-content-center">
+            <section class="col-md-4 mb-5">
+                <div class="card border-0">
+                    <img src="img/foto_1.jpg" class="img-thumbnail card-img " alt="">
+                </div>
+            </section>
+            <section class="col-md-4 mb-5">
+                <div class="card h-100 bg-white bg-opacity-50 border-0">
+                    <img src="img/icono_regalo.webp" class="card-img-top m-auto" style="width: 200px;" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Salón San Benito Eventos</h5>
+                        <p class="card-text">Guanacaste 1805, José C. Paz, Provincia de Buenos Aires</p>
+                        <p>20:30 a 05:30</p>
+                        <a target="_blanck"
+                            href="https://www.google.com/maps/place/Guanacaste+1805,+B1660+Jos%C3%A9+C.+Paz,+Provincia+de+Buenos+Aires/@-34.4944915,-58.7767589,17z/data=!3m1!4b1!4m6!3m5!1s0x95bc9850ac15c013:0x3609478e83bf6a20!8m2!3d-34.494496!4d-58.7721455!16s%2Fg%2F11jcx5dxw8?hl=es&entry=ttu"
+                            class="btn btn-primary font-1 fs-4 border-0" style="background-color: #F4CCCC;color: rgb(47,46,46); box-shadow: 0.00px 1.00px 4px 0px rgba(0,0,0,0.6);">¿Como llegar?</a>
+                    </div>
+            </section>
+        </article>
+        <article class="row  mb-5 justify-content-center">
+
+            <section class="col-md-4 mb-5">
+                <div class="card h-100 bg-white bg-opacity-50 border-0">
+                    <img src="img/icono_torta.webp" class="card-img-top m-auto" style="width: 200px;" alt="...">
+                    <div class="card-body">
+
+                        <p class="card-text fs-5">El mejor regalo para mí es tu compañía, pero si quieres obsequiarme algo,
+                            mi mamá lo recibirá.</p>
+
+                    </div>
+            </section>
+            <section class="col-md-4 mb-5">
+                <div class="card border-0">
+                    <img src="img/foto_2.jpg" class="img-thumbnail  card-img " alt="">
+                </div>
+            </section>
+        </article>
+
+        <article class="row mb-5">
+            <section class="col-md-12">
+                <h1 class="display-3">Te espero</h1>
+            </section>
+        </article>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa"
+        crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
+
+    <script>
+
+        let elDiasChico = document.getElementById("diasChico")
+        let elHorasChico = document.getElementById("horasChico")
+        let elMinutosChico = document.getElementById("minutosChico")
+        let elSegundosChico = document.getElementById("segundosChico")
+        
+        function actualizarChico(){
+            let object = calcDate()
+            elDiasChico.innerHTML = object.total_days
+            elHorasChico.innerHTML = object.total_hours
+            elMinutosChico.innerHTML = object.total_minutes
+            elSegundosChico.innerHTML = object.total_seconds
+        }
+
+        let elDiasGrande = document.getElementById("diasGrande")
+        let elHorasGrande = document.getElementById("horasGrande")
+        let elMinutosGrande = document.getElementById("minutosGrande")
+        let elSegundosGrande = document.getElementById("segundosGrande")
+        
+        function actualizarGrande(){
+            let object = calcDate()
+            elDiasGrande.innerHTML = object.total_days
+            elHorasGrande.innerHTML = object.total_hours
+            elMinutosGrande.innerHTML = object.total_minutes
+            elSegundosGrande.innerHTML = object.total_seconds
+        }
+
+        window.addEventListener("load", function(){
+            actualizarChico()
+            actualizarGrande()
+        })
+
+        document.getElementById("botonMusica").addEventListener("click", function(){
+            new Audio("musica.mp3").play()
+        })
+    </script>
+</body>
+
+</html>
