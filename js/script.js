@@ -31,6 +31,7 @@ function calcDate() {
     const months_passed = Number(Math.abs(calcFormat[1]) - 1);
     const years_passed = Number(Math.abs(calcFormat[2]) - 1970);
 
+
     //Set up custom text
     const yrsTxt = ["year", "years"];
     const mnthsTxt = ["month", "months"];
@@ -49,7 +50,8 @@ function calcDate() {
         ((months_passed == 1) ? months_passed + ' ' + mnthsTxt[0] : (months_passed > 1) ?
             months_passed + ' ' + mnthsTxt[1] + ' ' : '') +
         ((days_passed == 1) ? days_passed + ' ' + daysTxt[0] : (days_passed > 1) ?
-            days_passed + ' ' + daysTxt[1] : '');
+            days_passed + ' ' + daysTxt[1] : ''  
+            ) ;
 
     //return the result
     return {
@@ -59,6 +61,56 @@ function calcDate() {
         "total_minutes" : Math.round(total_mins),
         "total_seconds": Math.round(total_secs),
         "result": result.trim()
+    }
+
+}
+
+function calculoEspacila(){
+    let result = calcDate();
+    let total = result.total_seconds;
+
+    let minutosRestantes = (total / 60) 
+    let minutoEntero = Math.trunc(minutosRestantes);
+    let minutoFraccion = Number((minutosRestantes-minutoEntero).toFixed(2))
+    let segundos = Math.trunc(minutoFraccion * 60)
+
+    let horasRestantes = minutoEntero / 60
+    let horasEntero = Math.trunc(horasRestantes)
+    let horasFraccion = Number((horasRestantes-horasEntero).toFixed(2))
+    let minutos = Math.trunc(horasFraccion * 60) +1
+
+    let diasRestatantes = horasEntero / 24
+    let diasEntero = Math.trunc(diasRestatantes)
+    let diasFraccion = Number((diasRestatantes - diasEntero).toFixed(2))
+    let horas = Math.trunc(diasFraccion * 24)
+
+   
+
+    return {
+        segundos : segundos,
+        minutos : minutos,
+        horas : horas,
+        dias : diasEntero,
+        restar : () => {
+            if(segundos > 0){
+                segundos--
+            }else if (segundos === 0){
+                segundos = 60
+                if(minutos > 0){
+                    minutos--
+                }else if(minutos === 0){
+                    minutos = 60
+                    if(horas > 0){
+                        horas--
+                    }else if(horas === 0){
+                        horas = 24
+                        if(dias > 0){
+                            dias--
+                        }
+                    }
+                }
+            }
+        }
     }
 
 }

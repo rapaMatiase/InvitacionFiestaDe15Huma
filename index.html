@@ -72,11 +72,9 @@
     <main class="container-sm overflow-y-scroll text-center vh-100 vw-100 p-10 style-15 ">
         
         <article class="row mb-5 mt-5 justify-content-center align-items-center">
-            <section class="col-md-4 col-sm-6 ">
-                <img src="img/letra_u.png" style="height: 150px;" alt="">
-            </section>
+           
             <section class="col-md-3 col-sm-6">
-                <h1 class="display-2 font-1" style="text-align: center;">Uma</h1>
+                <h1 class="display-2 font-1" style="text-align: center; color: #a98e14; text-shadow: 2px 2px #080808;">Uma</h1>
             </section>
             <section class="col-md-2 col-sm-12 align-items-end ">
                 <button id="botonMusica" class="btn btn-primary font-1 fs-4 border-0 align-middle" style="background-color: #F4CCCC;color: rgb(47,46,46); box-shadow: 0.00px 1.00px 4px 0px rgba(0,0,0,0.6);"> 
@@ -163,7 +161,7 @@
             <section class="col-8">
                 <div class="card  p-4">
                     <h2 class="font-1 fs-1 mb-4  text-center">¡Atencion!</h2>
-                    <p class="fs-5"> Por favor, comunicate con migo para confirmame tu asistencia.</p>
+                    <p class="fs-5"> Por favor, comunicate con migo para confirmame tu asistencia hasta el 02/11/23.</p>
                 </div>  
             </section>
         </article>
@@ -267,12 +265,35 @@
         let elMinutosChico = document.getElementById("minutosChico")
         let elSegundosChico = document.getElementById("segundosChico")
         
+        let time =calculoEspacila()
+
         function actualizarChico(){
-            let object = calcDate()
-            elDiasChico.innerHTML = object.total_days
-            elHorasChico.innerHTML = object.total_hours
-            elMinutosChico.innerHTML = object.total_minutes
-            elSegundosChico.innerHTML = object.total_seconds
+            
+            elDiasChico.innerHTML = time.dias//object.total_days
+            elHorasChico.innerHTML = time.horas//object.total_hours
+            elMinutosChico.innerHTML = time.minutos//object.total_minutes
+            elSegundosChico.innerHTML =time.segundos// object.total_seconds
+            
+            if(time.segundos > 0){
+                time.segundos--
+            }else if (time.segundos === 0){
+                time.segundos = 60
+                if(time.minutos > 1){
+                    time.minutos--
+                }else if(time.minutos === 1){
+                    time.minutos = 60
+                    if(time.horas > 0){
+                        time.horas--
+                    }else if(time.horas === 0){
+                        time.horas = 24
+                        if(time.dias > 0){
+                            time.dias--
+                        }
+                    }
+                }
+            }
+            setTimeout(actualizarChico, 1000);
+
         }
 
         let elDiasGrande = document.getElementById("diasGrande")
@@ -281,11 +302,33 @@
         let elSegundosGrande = document.getElementById("segundosGrande")
         
         function actualizarGrande(){
-            let object = calcDate()
-            elDiasGrande.innerHTML = object.total_days
-            elHorasGrande.innerHTML = object.total_hours
-            elMinutosGrande.innerHTML = object.total_minutes
-            elSegundosGrande.innerHTML = object.total_seconds
+            console.log("Pase")
+           
+            elDiasGrande.innerHTML = time.dias
+            elHorasGrande.innerHTML = time.horas
+            elMinutosGrande.innerHTML = time.minutos
+            elSegundosGrande.innerHTML = time.segundos
+
+           
+            if(time.segundos > 0){
+                time.segundos--
+            }else if (time.segundos === 0){
+                time.segundos = 60
+                if(time.minutos > 1){
+                    time.minutos--
+                }else if(time.minutos === 1){
+                    time.minutos = 60
+                    if(time.horas > 0){
+                        time.horas--
+                    }else if(time.horas === 0){
+                        time.horas = 24
+                        if(time.dias > 0){
+                            time.dias--
+                        }
+                    }
+                }
+            }
+            setTimeout(actualizarGrande, 1000);
         }
 
         window.addEventListener("load", function(){
@@ -293,6 +336,7 @@
             actualizarGrande()
         })
 
+    
         document.getElementById("botonMusica").addEventListener("click", function(){
             new Audio("musica.mp3").play()
         })
