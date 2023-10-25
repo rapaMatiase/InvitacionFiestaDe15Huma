@@ -336,9 +336,12 @@
             actualizarGrande()
         })
 
-    
+        let bloquear = true
         document.getElementById("botonMusica").addEventListener("click", function(){
-            new Audio("musica.mp3").play()
+            if(bloquear){
+                new Audio("musica.mp3").play()
+                bloquear = false
+            }
         })
     </script>
 </body>
